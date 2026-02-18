@@ -1,92 +1,36 @@
-# Fraylon Technologies  
-## Corporate Website Repository
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-This repository contains the official source code for the Fraylon Technologies corporate website.
+## Getting Started
 
-This project is developed under structured execution guidelines and enterprise-level development standards.
+First, run the development server:
 
----
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
+```
 
-## 1. Project Purpose
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-The objective of this project is to build a production-ready, scalable, and maintainable corporate website that reflects the technical and operational standards of Fraylon Technologies.
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-This repository represents a controlled development environment. All contributors are expected to follow defined processes.
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
----
+## Learn More
 
-## 2. Technology Stack
+To learn more about Next.js, take a look at the following resources:
 
-### Frontend
-- Next.js (App Router)
-- TypeScript
-- Tailwind CSS
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-### Backend
-- NestJS (TypeScript-based framework)
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-### Database
-- PostgreSQL
-- Prisma ORM
+## Deploy on Vercel
 
-### Deployment
-- Vercel (Frontend)
-- Render (Backend)
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
----
-
-## 3. Development Model
-
-**Execution Timeline:** 14 Days
-
-### Phase 1 – Frontend Sprint (Day 1–7)
-- UI development
-- Responsive implementation
-- Reusable components
-- Design freeze by Day 3
-
-### Phase 2 – Backend Development (Day 4–10)
-- NestJS architecture setup
-- Database schema design
-- Authentication module
-- Contact & Admin APIs
-- Validation & structured error handling
-
-### Phase 3 – Integration & Deployment (Day 11–14)
-- Frontend–backend integration
-- Performance optimization
-- Production environment configuration
-- Deployment
-- End-to-end validation
-
-Project must be production-ready by Day 14.
-
----
-
-## 4. Repository Governance
-
-- No direct push to `main`
-- All changes via Pull Requests
-- Minimum one review approval required before merge
-- Strict TypeScript usage
-- No unnecessary libraries
-- Clean folder structure
-- No hardcoded secrets
-
----
-
-## 5. Contribution Workflow
-
-1. Create feature branch: `feature/<task-name>`
-2. Implement assigned task
-3. Commit using structured format (`feat:`, `fix:`, `refactor:`)
-4. Create Pull Request
-5. Merge only after approval
-
----
-
-## 6. Current Status
-
-- Project State: Active Development  
-- Execution Model: 14-Day Sprint  
-- Governance Level: Structured Workflow
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
