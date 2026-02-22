@@ -1,183 +1,198 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { Lightbulb, Handshake, Target, Users, Trophy } from "lucide-react";
 
 const fadeUp = {
-  hidden: { opacity: 0, y: 60 },
+  hidden: { opacity: 0, y: 40 },
   show: { opacity: 1, y: 0, transition: { duration: 0.6 } },
 };
 
-export default function AboutPage() {
-  const [activeMember, setActiveMember] = useState<any>(null);
+const containerStagger = {
+  hidden: {},
+  show: {
+    transition: { staggerChildren: 0.2 },
+  },
+};
 
-  const team = [
-    { name: "Person Name", role: "Role / Position" },
-    { name: "Person Name", role: "Role / Position" },
-    { name: "Person Name", role: "Role / Position" },
+export default function AboutPage() {
+  const values = [
+    { title: "Innovation", desc: "We continuously explore new technologies.", icon: <Lightbulb size={28} /> },
+    { title: "Integrity", desc: "We maintain transparency and ethics.", icon: <Handshake size={28} /> },
+    { title: "Customer Success", desc: "We focus on measurable growth.", icon: <Target size={28} /> },
+    { title: "Collaboration", desc: "We believe in teamwork and trust.", icon: <Users size={28} /> },
+    { title: "Excellence", desc: "We deliver high-quality solutions.", icon: <Trophy size={28} /> },
   ];
 
+  const team = [
+    { name: "Person Name", role: "CEO & Founder", img: "https://randomuser.me/api/portraits/men/32.jpg" },
+    { name: "Person Name", role: "CTO", img: "https://randomuser.me/api/portraits/women/44.jpg" },
+    { name: "Person Name", role: "COO", img: "https://randomuser.me/api/portraits/men/76.jpg" },
+  ];
+
+  const headingStyle = "text-4xl font-extrabold mb-6 relative inline-block group";
+  const headingGradient = "bg-gradient-to-r from-[#34A2A7] via-white to-[#34A2A7] bg-clip-text text-transparent";
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#0b1d3a] via-[#142c6e] to-[#1e3a8a] text-white">
+    <div className="relative min-h-screen text-white overflow-hidden bg-gradient-to-br from-[#0B6A8A] via-[#1a4f75] to-[#34A2A7]">
+
+      {/* GRID BACKGROUND */}
+      <div
+        className="absolute inset-0 opacity-30 animate-gridMove pointer-events-none"
+        style={{
+          backgroundImage:
+            "linear-gradient(rgba(255,255,255,0.15) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.15) 1px, transparent 1px)",
+          backgroundSize: "60px 60px",
+        }}
+      />
+
+      {/* RADIAL GLOW */}
+      <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_20%_20%,rgba(52,162,167,0.25),transparent_40%),radial-gradient(circle_at_80%_70%,rgba(255,255,255,0.15),transparent_40%)]" />
 
       {/* HERO */}
-      <section className="text-center py-28 px-6">
+      <section className="text-center pt-28 pb-16 px-6 relative z-10">
         <motion.h1
-          variants={fadeUp}
-          initial="hidden"
-          animate="show"
-          className="text-5xl md:text-6xl font-extrabold mb-6"
+          animate={{ y: [0, -6, 0] }}
+          transition={{ duration: 4, repeat: Infinity }}
+          className="text-5xl md:text-7xl font-extrabold"
         >
-          <span className="text-white">About </span>
-          <span className="bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-500 bg-clip-text text-transparent animate-gradient">
+          
+
+          <span className={headingGradient}>
             Fraylon Technologies
           </span>
+
+          <motion.div
+            initial={{ width: 0 }}
+            animate={{ width: "160px" }}
+            transition={{ duration: 0.6 }}
+            className="h-[3px] bg-gradient-to-r from-[#34A2A7] to-white mx-auto mt-4 rounded-full"
+          />
         </motion.h1>
 
-        <motion.div
-          initial={{ width: 0 }}
-          animate={{ width: "140px" }}
-          transition={{ duration: 0.8 }}
-          className="h-1 bg-gradient-to-r from-blue-400 to-cyan-300 mx-auto rounded-full mb-6"
-        />
-
-        <motion.p
-          variants={fadeUp}
-          initial="hidden"
-          animate="show"
-          transition={{ delay: 0.2 }}
-          className="max-w-3xl mx-auto text-lg md:text-xl text-blue-100"
-        >
-          Fraylon Technologies is a next-generation digital solutions company that empowers
-          startups and enterprises through modern web development, automation,
-          branding, and marketing innovation.
-        </motion.p>
+        <p className="mt-6 max-w-2xl mx-auto text-white/80 text-lg">
+          Empowering businesses with modern digital solutions, automation, and innovation.
+        </p>
       </section>
+
+      {/* SECTION DIVIDER */}
+      <div className="h-[1px] w-full max-w-5xl mx-auto bg-gradient-to-r from-transparent via-white/30 to-transparent mb-16" />
+
+      {/* WHO WE ARE */}
+      <section className="max-w-6xl mx-auto px-6 py-16 grid md:grid-cols-2 gap-12 items-center relative z-10 backdrop-blur-[2px]">
+        <motion.div variants={fadeUp} initial="hidden" whileInView="show">
+          <h2 className={headingStyle}>
+            <span className={headingGradient}>Who We Are</span>
+            <span className="block h-[3px] w-0 bg-gradient-to-r from-[#34A2A7] to-white mt-2 transition-all duration-500 ease-in-out group-hover:w-full"></span>
+          </h2>
+
+          <p className="text-white/80 text-lg leading-relaxed">
+            Fraylon Technologies builds scalable web platforms, automation systems,
+            and marketing solutions to help businesses grow faster, smarter, and more efficiently.
+          </p>
+        </motion.div>
+
+        <motion.img
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6 }}
+          src="https://img.freepik.com/free-photo/businesspeople-having-good-time-meeting_1098-1786.jpg"
+          className="rounded-2xl shadow-2xl w-full h-[360px] object-cover"
+          whileHover={{ y: -8, rotate: 1 }}
+        />
+      </section>
+
+      {/* DIVIDER */}
+      <div className="h-[1px] w-full max-w-5xl mx-auto bg-gradient-to-r from-transparent via-white/30 to-transparent mb-16" />
 
       {/* VISION & MISSION */}
-      <section className="max-w-6xl mx-auto px-6 pb-24 grid md:grid-cols-2 gap-10">
+      <section className="max-w-6xl mx-auto px-6 py-16 grid md:grid-cols-2 gap-12 items-center relative z-10 backdrop-blur-[2px]">
+        <motion.img
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6 }}
+          src="https://images.stockcake.com/public/8/f/2/8f232cdb-1ba5-42aa-be75-f9fbb33c2f6c_large/corporate-team-meeting-stockcake.jpg"
+          className="rounded-2xl shadow-2xl w-full h-[360px] object-cover"
+          whileHover={{ y: -8, rotate: -1 }}
+        />
 
-        <motion.div
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true }}
-          className="bg-white/10 backdrop-blur-xl border border-white/20 p-10 rounded-2xl shadow-xl transition duration-300 hover:scale-105 hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(59,130,246,0.4)]"
-        >
-          <h2 className="text-3xl md:text-4xl font-extrabold mb-4 bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-500 bg-clip-text text-transparent animate-gradient">
-            Our Vision
+        <motion.div variants={fadeUp} initial="hidden" whileInView="show">
+          <h2 className={headingStyle}>
+            <span className={headingGradient}>Vision & Mission</span>
+            <span className="block h-[3px] w-0 bg-gradient-to-r from-[#34A2A7] to-white mt-2 transition-all duration-500 ease-in-out group-hover:w-full"></span>
           </h2>
-          <p className="text-blue-100 text-lg">
-            To become a global digital growth partner by building scalable,
-            innovative, and future-ready digital ecosystems.
+
+          <p className="text-white/80 text-lg mb-4">
+            Our vision is to become a global digital growth partner helping organizations scale with modern technology.
           </p>
-        </motion.div>
 
-        <motion.div
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true }}
-          transition={{ delay: 0.2 }}
-          className="bg-white/10 backdrop-blur-xl border border-white/20 p-10 rounded-2xl shadow-xl transition duration-300 hover:scale-105 hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(59,130,246,0.4)]"
-        >
-          <h2 className="text-3xl md:text-4xl font-extrabold mb-4 bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-500 bg-clip-text text-transparent animate-gradient">
-            Our Mission
-          </h2>
-          <p className="text-blue-100 text-lg">
-            To combine marketing, technology, and automation into unified systems
-            that scale businesses efficiently and sustainably.
+          <p className="text-white/80 text-lg">
+            Our mission is to integrate development, marketing, and automation into powerful systems that drive measurable growth.
           </p>
         </motion.div>
       </section>
 
-      {/* LEADERSHIP */}
-      <section className="py-24 px-6 text-center">
-        <motion.h2
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true }}
-          className="text-5xl md:text-6xl font-extrabold mb-20"
-        >
-          <span className="bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-500 bg-clip-text text-transparent animate-gradient">
-            Leadership Team
-          </span>
-          <span className="block w-40 h-1 bg-gradient-to-r from-blue-400 to-cyan-300 mx-auto mt-4 rounded-full"></span>
-        </motion.h2>
+      {/* DIVIDER */}
+      <div className="h-[1px] w-full max-w-5xl mx-auto bg-gradient-to-r from-transparent via-white/30 to-transparent mb-16" />
 
-        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-12 max-w-6xl mx-auto">
-          {team.map((member, i) => (
+      {/* CORE VALUES */}
+      <section className="py-16 px-6 text-center relative z-10 backdrop-blur-[2px]">
+        <h2 className={`${headingStyle} mb-12`}>
+          <span className={headingGradient}>Our Core Values</span>
+          <span className="block h-[3px] w-0 bg-gradient-to-r from-[#34A2A7] to-white mt-2 transition-all duration-500 ease-in-out group-hover:w-full mx-auto"></span>
+        </h2>
+
+        <motion.div variants={containerStagger} initial="hidden" whileInView="show" className="grid grid-cols-2 md:grid-cols-5 gap-6 max-w-6xl mx-auto">
+          {values.map((val, i) => (
             <motion.div
               key={i}
-              onClick={() => setActiveMember(member)}
               variants={fadeUp}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true }}
-              className="cursor-pointer group bg-white/10 border border-white/20 rounded-2xl p-8 backdrop-blur-lg transition duration-300 hover:scale-105 hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(59,130,246,0.4)]"
+              whileHover={{ y: -10, scale: 1.03, rotateX: 2, rotateY: -2 }}
+              className="bg-white/10 border border-white/20 p-6 rounded-xl shadow-lg hover:shadow-[#34A2A7]/40"
             >
-              <div className="w-36 h-36 mx-auto mb-5 rounded-full bg-gray-300 flex items-center justify-center text-xl text-gray-600">
-                IMG
+              <div className="mb-3 flex justify-center">
+                <div className="p-3 rounded-full bg-white/10 shadow-inner shadow-[#34A2A7]/30">
+                  {val.icon}
+                </div>
               </div>
-              <h3 className="text-xl font-semibold">{member.name}</h3>
-              <p className="text-blue-300">{member.role}</p>
+              <h3 className="font-semibold text-lg mb-1">{val.title}</h3>
+              <p className="text-white/70 text-sm">{val.desc}</p>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </section>
 
-      {/* VALUES */}
-      <section className="py-24 px-6 text-center">
-        <motion.h2
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true }}
-          className="text-5xl md:text-6xl font-extrabold mb-8"
-        >
-          <span className="bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-500 bg-clip-text text-transparent animate-gradient">
-            Our Core Values
-          </span>
-          <span className="block w-40 h-1 bg-gradient-to-r from-blue-400 to-cyan-300 mx-auto mt-4 rounded-full"></span>
-        </motion.h2>
+      {/* DIVIDER */}
+      <div className="h-[1px] w-full max-w-5xl mx-auto bg-gradient-to-r from-transparent via-white/30 to-transparent mb-16" />
 
-        <motion.p
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true }}
-          className="max-w-3xl mx-auto text-blue-200 text-lg"
-        >
-          We believe in innovation, transparency, customer success, and building
-          long-term partnerships that create real impact in the digital world.
-        </motion.p>
-      </section>
+      {/* LEADERSHIP */}
+      <section className="py-16 px-6 text-center relative z-10 backdrop-blur-[2px]">
+        <h2 className={headingStyle}>
+          <span className={headingGradient}>Leadership</span>
+          <span className="block h-[3px] w-0 bg-gradient-to-r from-[#34A2A7] to-white mt-2 transition-all duration-500 ease-in-out group-hover:w-full mx-auto"></span>
+        </h2>
 
-      {/* MODAL */}
-      {activeMember && (
-        <div
-          onClick={() => setActiveMember(null)}
-          className="fixed inset-0 bg-black/70 flex items-center justify-center z-50"
-        >
-          <div
-            onClick={(e) => e.stopPropagation()}
-            className="bg-[#0b1d3a] p-10 rounded-2xl border border-white/20 max-w-md text-center"
-          >
-            <div className="w-32 h-32 mx-auto mb-4 rounded-full bg-gray-300 flex items-center justify-center text-gray-600">
-              IMG
-            </div>
-            <h3 className="text-2xl font-bold mb-2">{activeMember.name}</h3>
-            <p className="text-blue-300 mb-4">{activeMember.role}</p>
-            <button
-              onClick={() => setActiveMember(null)}
-              className="mt-4 px-6 py-2 bg-blue-500 rounded-full hover:bg-blue-600 transition"
+        <p className="text-white/70 max-w-xl mx-auto mb-12">
+          Our team combines innovation, strategy, and experience to drive impactful digital transformation.
+        </p>
+
+        <motion.div variants={containerStagger} initial="hidden" whileInView="show" className="grid md:grid-cols-3 gap-10 max-w-6xl mx-auto">
+          {team.map((m, i) => (
+            <motion.div
+              key={i}
+              variants={fadeUp}
+              whileHover={{ y: -10, scale: 1.05 }}
+              className="bg-white/10 border border-white/20 p-8 rounded-2xl shadow-lg hover:shadow-[#34A2A7]/40"
             >
-              Close
-            </button>
-          </div>
-        </div>
-      )}
+              <div className="w-28 h-28 mx-auto mb-4 overflow-hidden rounded-full border-2 border-[#34A2A7]/60 shadow-lg shadow-[#34A2A7]/30">
+                <img src={m.img} className="w-full h-full object-cover rounded-full" />
+              </div>
+              <h3 className="text-xl font-semibold">{m.name}</h3>
+              <p className="text-[#34A2A7]">{m.role}</p>
+            </motion.div>
+          ))}
+        </motion.div>
+      </section>
 
     </div>
   );
