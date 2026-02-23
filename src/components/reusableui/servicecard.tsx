@@ -1,56 +1,94 @@
-
+import Image from "next/image";
 import Link from "next/link";
 
-
 type CardProps = {
-    icon: React.ReactNode;
+    icon: string;
     title: string;
     description: string;
-    points: string[];
     button: string;
     slug: string;
+    reverse?: boolean;
+    variant?: "colored" | "plain";
 };
 
 export default function ServiceCard({
     icon,
     title,
     description,
-    points,
     button,
-    slug
+    slug,
+    reverse = false,
+    variant = "plain",
 }: CardProps) {
     return (
-        <div className="group relative bg-white border rounded-2xl p-8 shadow-md 
-                    hover:shadow-2xl transition-all duration-500 
-                    hover:-translate-y-3 overflow-hidden">
-
-            <div className="absolute inset-0 bg-linear-0-to-br from-blue-50 to-purple-50 
-                      opacity-0 group-hover:opacity-100 transition duration-500"></div>
-
-            <div className="relative z-10">
-
-                <div className="mb-4 transform group-hover:scale-110 transition duration-300">
-                    {icon}
+        <div
+            className={`w-full rounded-2xl p-10 transition-all duration-500 group
+  ${variant === "colored"
+                    ? "bg-[#34A2A7]"
+                    : "bg-[#062F3E]"
+                }
+  hover:shadow-2xl`}
+        >
+            <div
+                className={`flex flex-col md:flex-row items-center gap-10 ${reverse ? "md:flex-row-reverse" : ""
+                    }`}
+            >
+                {/* Image Side */}
+                <div className="flex-1 flex justify-center">
+                    <Image
+                        src={icon}
+                        alt={title}
+                        width={400}
+                        height={400}
+                        className="w-full max-w-sm h-auto object-contain transition-transform duration-500 group-hover:scale-105"
+                    />
                 </div>
 
-                <h3 className="text-xl font-semibold mb-3">{title}</h3>
+                {/* Content Side */}
+                <div className="flex-1">
+                    <h2
+                        className={`text-2xl font-semibold mb-4 transition-colors duration-300
+        ${variant === "colored"
+                                ? "text-[#062F3E]"
+                                : "text-[#34A2A7]"
+                            }`}
+                    >
+                        {title}
+                    </h2>
 
-                <p className="text-gray-600 mb-4">{description}</p>
+                    <p
+                        className={`mb-4
+        ${variant === "colored"
+                                ? "text-[#F8FBF9]/90"
+                                : "text-[#D5E2E5]"
+                            }`}
+                    >
+                        {description}
+                    </p>
 
-                <ul className="list-disc list-inside text-gray-600 space-y-1 mb-6 text-sm">
-                    {points.map((point, index) => (
-                        <li key={index}>{point}</li>
-                    ))}
-                </ul>
+                    {/* <ul
+                        className={`list-disc list-inside space-y-1 mb-6 text-sm
+        ${variant === "colored"
+                                ? "text-[#F8FBF9]/80"
+                                : "text-[#D5E2E5]/90"
+                            }`}
+                    >
+                        {points?.map((point, index) => (
+                            <li key={index}>{point}</li>
+                        ))}
+                    </ul> */}
 
-                {/* CTA Button */}
-                <Link href={`/services/${slug}`}
-                    className="relative px-6 py-2 rounded-full bg-black text-white 
-                     overflow-hidden transition-all duration-300
-                     group-hover:bg-blue-600"
-                     >
+                    <Link
+                        href={`/services/${slug}`}
+                        className={`inline-block px-6 py-3 rounded-full transition-all duration-300 hover:scale-105
+        ${variant === "colored"
+                                ? "bg-[#0B6A8A] text-white hover:bg-[#062F3E]"
+                                : "bg-[#34A2A7] text-white hover:bg-[#0B6A8A]"
+                            }`}
+                    >
                         {button}
-                     </Link>
+                    </Link>
+                </div>
             </div>
         </div>
     );
