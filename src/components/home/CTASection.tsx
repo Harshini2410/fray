@@ -45,7 +45,7 @@ export default function CTASection() {
           <div className="overflow-hidden">
             <motion.h2
               className="text-balance text-2xl font-semibold tracking-tight text-slate-50 sm:text-3xl md:text-[2.1rem]"
-              variants={headingVariants}
+              variants={headingVariants as any}
               initial="hidden"
               animate={inView ? "visible" : "hidden"}
             >
