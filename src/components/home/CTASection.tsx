@@ -11,7 +11,7 @@ const headingVariants = {
     y: 0,
     transition: {
       duration: 0.7,
-      ease: [0.25, 0.8, 0.4, 1],
+      ease: "easeOut",
     },
   },
 };
@@ -36,7 +36,7 @@ export default function CTASection() {
         className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top,_rgba(56,189,248,0.25),_rgba(15,23,42,1)_55%)]"
         initial={{ opacity: 0 }}
         animate={inView ? { opacity: 1 } : { opacity: 0 }}
-        transition={{ duration: 0.9, ease: [0.25, 0.8, 0.4, 1] }}
+        transition={{ duration: 0.9, ease: "easeOut" }}
         style={{ y: backgroundY }}
       />
 
@@ -56,7 +56,7 @@ export default function CTASection() {
             className="mt-4 text-sm leading-relaxed text-slate-300/90 sm:text-[0.95rem]"
             initial={{ opacity: 0, y: 24 }}
             animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 24 }}
-            transition={{ duration: 0.65, delay: 0.12, ease: [0.25, 0.8, 0.4, 1] }}
+            transition={{ duration: 0.65, delay: 0.12, ease: "easeOut" }}
           >
             We run a concise working session with senior stakeholders to unpack
             your objectives, constraints, and operating context—then shape a
@@ -67,7 +67,7 @@ export default function CTASection() {
             className="mt-8 flex justify-center"
             initial={{ opacity: 0, y: 24 }}
             animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 24 }}
-            transition={{ duration: 0.7, delay: 0.2, ease: [0.25, 0.8, 0.4, 1] }}
+            transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
           >
             <motion.button
               type="button"
