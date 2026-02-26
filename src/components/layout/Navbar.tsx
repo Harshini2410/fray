@@ -32,7 +32,7 @@ export default function Navbar() {
           y: 0,
           height: isScrolled ? 70 : 88,
         }}
-        transition={{ duration: 0.35, ease: [0.25, 0.8, 0.4, 1] }}
+        transition={{ duration: 0.35, ease: [0.25, 0.8, 0.4, 1] as [number, number, number, number] }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           isScrolled
             ? "bg-slate-50/95 backdrop-blur-xl border-b border-slate-200/40 shadow-[0_10px_40px_rgba(0,0,0,0.5),0_4px_12px_rgba(0,0,0,0.3)]"

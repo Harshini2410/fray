@@ -2,16 +2,17 @@
 
 import { useRef } from "react";
 import { motion, useInView, useScroll, useTransform } from "framer-motion";
+import type { Variants } from "framer-motion";
 import Container from "@/components/ui/Container";
 
-const headingVariants = {
+const headingVariants: Variants = {
   hidden: { opacity: 0, y: 40 },
   visible: {
     opacity: 1,
     y: 0,
     transition: {
       duration: 0.7,
-      ease: [0.25, 0.8, 0.4, 1],
+      ease: [0.25, 0.8, 0.4, 1] as [number, number, number, number],
     },
   },
 };
@@ -62,14 +63,14 @@ export default function ServicesPreview() {
             className="text-xs font-medium uppercase tracking-[0.26em] text-sky-300/90"
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-            transition={{ duration: 0.6, ease: [0.25, 0.8, 0.4, 1] }}
+            transition={{ duration: 0.6, ease: [0.25, 0.8, 0.4, 1] as [number, number, number, number] }}
           >
             Services
           </motion.p>
           <div className="overflow-hidden mt-4">
             <motion.h2
               className="text-balance text-2xl font-semibold tracking-tight text-slate-50 sm:text-3xl md:text-[2rem]"
-              variants={headingVariants}
+              variants={headingVariants as Variants}
               initial="hidden"
               animate={inView ? "visible" : "hidden"}
             >
@@ -101,7 +102,7 @@ export default function ServicesPreview() {
               transition={{
                 duration: 0.7,
                 delay: 0.2 + index * 0.1,
-                ease: [0.25, 0.8, 0.4, 1],
+                ease: [0.25, 0.8, 0.4, 1] as [number, number, number, number],
               }}
             >
               <div>
@@ -143,7 +144,7 @@ export default function ServicesPreview() {
                   boxShadow:
                     "0 0 0 1px rgba(56,189,248,0.35), 0 18px 45px rgba(8,47,73,0.65)",
                 }}
-                transition={{ duration: 0.25, ease: [0.22, 0.76, 0.3, 0.98] }}
+                transition={{ duration: 0.25, ease: [0.22, 0.76, 0.3, 0.98] as [number, number, number, number] }}
               />
             </motion.article>
           ))}

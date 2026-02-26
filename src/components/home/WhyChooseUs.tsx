@@ -9,16 +9,17 @@ import {
   useTransform,
   animate,
 } from "framer-motion";
+import type { Variants } from "framer-motion";
 import Container from "@/components/ui/Container";
 
-const headingVariants = {
+const headingVariants: Variants = {
   hidden: { opacity: 0, y: 40 },
   visible: {
     opacity: 1,
     y: 0,
     transition: {
       duration: 0.7,
-      ease: [0.25, 0.8, 0.4, 1],
+      ease: [0.25, 0.8, 0.4, 1] as [number, number, number, number],
     },
   },
 };
@@ -61,7 +62,7 @@ function StatNumber({ from, to }: { from: number; to: number }) {
     if (!inView) return;
     const controls = animate(value, to, {
       duration: 1.6,
-      ease: [0.16, 0.84, 0.44, 1],
+      ease: [0.16, 0.84, 0.44, 1] as [number, number, number, number],
     });
     return controls.stop;
   }, [inView, to, value]);
@@ -98,7 +99,7 @@ export default function WhyChooseUs() {
         className="pointer-events-none absolute inset-0 -z-10"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 0.8, ease: [0.25, 0.8, 0.4, 1] }}
+            transition={{ duration: 0.8, ease: [0.25, 0.8, 0.4, 1] as [number, number, number, number] }}
         style={{ y: backgroundY }}
       >
         <div className="absolute -left-32 top-10 h-52 w-52 rounded-full bg-sky-500/20 blur-3xl" />
@@ -119,7 +120,7 @@ export default function WhyChooseUs() {
           <div className="overflow-hidden mt-4">
             <motion.h2
               className="text-balance text-2xl font-semibold tracking-tight text-slate-50 sm:text-3xl md:text-[2rem]"
-              variants={headingVariants}
+              variants={headingVariants as Variants}
               initial="hidden"
               animate={inView ? "visible" : "hidden"}
             >
@@ -152,7 +153,7 @@ export default function WhyChooseUs() {
               transition={{
                 duration: 0.75,
                 delay: 0.2 + index * 0.1,
-                ease: [0.25, 0.8, 0.4, 1],
+                ease: [0.25, 0.8, 0.4, 1] as [number, number, number, number],
               }}
             >
               <div className="flex items-baseline gap-1">

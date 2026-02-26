@@ -2,16 +2,17 @@
 
 import { useRef } from "react";
 import { motion, useInView, useScroll, useTransform } from "framer-motion";
+import type { Variants } from "framer-motion";
 import Container from "@/components/ui/Container";
 
-const headingVariants = {
+const headingVariants: Variants = {
   hidden: { opacity: 0, y: 40 },
   visible: {
     opacity: 1,
     y: 0,
     transition: {
       duration: 0.7,
-      ease: [0.25, 0.8, 0.4, 1],
+      ease: [0.25, 0.8, 0.4, 1] as [number, number, number, number],
     },
   },
 };
@@ -43,7 +44,7 @@ export default function ProblemSolution() {
               className="text-xs font-medium uppercase tracking-[0.25em] text-slate-400/90"
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-              transition={{ duration: 0.6, ease: [0.25, 0.8, 0.4, 1] }}
+              transition={{ duration: 0.6, ease: [0.25, 0.8, 0.4, 1] as [number, number, number, number] }}
             >
               The challenge
             </motion.p>
@@ -51,7 +52,7 @@ export default function ProblemSolution() {
             <div className="overflow-hidden mt-4">
               <motion.h2
                 className="text-balance text-2xl font-semibold tracking-tight text-slate-50 sm:text-3xl md:text-[2.1rem]"
-                variants={headingVariants}
+                variants={headingVariants as Variants}
                 initial="hidden"
                 animate={inView ? "visible" : "hidden"}
               >
