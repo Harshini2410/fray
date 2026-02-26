@@ -30,7 +30,7 @@ const generateStars = (count: number): Star[] => {
 
 interface StarFieldProps {
   starCount?: number;
-  containerRef?: React.RefObject<HTMLDivElement>;
+  containerRef?: React.RefObject<HTMLDivElement | null>;
 }
 
 export default function StarField({ starCount = 70, containerRef }: StarFieldProps) {
