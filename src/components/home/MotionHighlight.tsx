@@ -2,16 +2,17 @@
 
 import { useRef } from "react";
 import { motion, useInView, useScroll, useTransform } from "framer-motion";
+import type { Variants } from "framer-motion";
 import Container from "@/components/ui/Container";
 
-const headingVariants = {
+const headingVariants: Variants = {
   hidden: { opacity: 0, y: 40 },
   visible: {
     opacity: 1,
     y: 0,
     transition: {
       duration: 0.7,
-      ease: [0.25, 0.8, 0.4, 1],
+      ease: [0.25, 0.8, 0.4, 1] as [number, number, number, number],
     },
   },
 };
@@ -58,7 +59,10 @@ export default function MotionHighlight() {
               className="text-xs font-medium uppercase tracking-[0.24em] text-sky-300/90"
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-              transition={{ duration: 0.6, ease: [0.25, 0.8, 0.4, 1] }}
+              transition={{
+                duration: 0.6,
+                ease: [0.25, 0.8, 0.4, 1] as [number, number, number, number],
+              }}
             >
               Motion with intent
             </motion.p>
@@ -76,7 +80,11 @@ export default function MotionHighlight() {
               className="mt-4 max-w-xl text-sm leading-relaxed text-slate-300/90 sm:text-[0.95rem]"
               initial={{ opacity: 0, y: 24 }}
               animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 24 }}
-              transition={{ duration: 0.7, delay: 0.12, ease: [0.25, 0.8, 0.4, 1] }}
+              transition={{
+                duration: 0.7,
+                delay: 0.12,
+                ease: [0.25, 0.8, 0.4, 1] as [number, number, number, number],
+              }}
             >
               We use motion to clarify—not distract. Subtle parallax, considered
               easing, and restrained transitions create the sense of a responsive,
@@ -88,7 +96,11 @@ export default function MotionHighlight() {
             className="relative mt-4 flex h-64 items-center justify-center rounded-3xl border border-slate-700/80 bg-slate-900/80 p-4 shadow-[0_24px_60px_rgba(15,23,42,0.9)]"
             initial={{ opacity: 0, y: 32, scale: 0.97 }}
             animate={inView ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: 32, scale: 0.97 }}
-            transition={{ duration: 0.75, delay: 0.18, ease: [0.25, 0.8, 0.4, 1] }}
+            transition={{
+              duration: 0.75,
+              delay: 0.18,
+              ease: [0.25, 0.8, 0.4, 1] as [number, number, number, number],
+            }}
           >
             <motion.div
               className="absolute inset-6 rounded-2xl border border-sky-400/30 bg-gradient-to-tr from-slate-900 via-slate-900/90 to-slate-950"
@@ -110,7 +122,12 @@ export default function MotionHighlight() {
                   transition={{
                     duration: 0.7,
                     delay: delay,
-                    ease: [0.25, 0.8, 0.4, 1],
+                    ease: [0.25, 0.8, 0.4, 1] as [
+                      number,
+                      number,
+                      number,
+                      number
+                    ],
                   }}
                 >
                   <p className="text-[0.68rem] uppercase tracking-[0.16em] text-slate-400">
