@@ -1,197 +1,167 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Lightbulb, Handshake, Target, Users, Trophy } from "lucide-react";
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 40 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.6 } },
-};
-
-const containerStagger = {
-  hidden: {},
-  show: {
-    transition: { staggerChildren: 0.2 },
-  },
-};
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
+import VisionMission from "@/components/about/VisionMission";
+import SectionHeroBlock from "@/components/about/SectionHeroBlock";
+import AnimatedBlobs from "@/components/reusableui/animatedblobs";
+import ServiceCard from "@/components/reusableui/servicecard";
 
 export default function AboutPage() {
-  const values = [
-    { title: "Innovation", desc: "We continuously explore new technologies.", icon: <Lightbulb size={28} /> },
-    { title: "Integrity", desc: "We maintain transparency and ethics.", icon: <Handshake size={28} /> },
-    { title: "Customer Success", desc: "We focus on measurable growth.", icon: <Target size={28} /> },
-    { title: "Collaboration", desc: "We believe in teamwork and trust.", icon: <Users size={28} /> },
-    { title: "Excellence", desc: "We deliver high-quality solutions.", icon: <Trophy size={28} /> },
-  ];
-
-  const team = [
-    { name: "Person Name", role: "CEO & Founder", img: "https://randomuser.me/api/portraits/men/32.jpg" },
-    { name: "Person Name", role: "CTO", img: "https://randomuser.me/api/portraits/women/44.jpg" },
-    { name: "Person Name", role: "COO", img: "https://randomuser.me/api/portraits/men/76.jpg" },
-  ];
-
-  const headingStyle = "text-4xl font-extrabold mb-6 relative inline-block group";
-  const headingGradient = "bg-gradient-to-r from-[#34A2A7] via-white to-[#34A2A7] bg-clip-text text-transparent";
-
   return (
-    <div className="relative min-h-screen text-white overflow-hidden bg-gradient-to-br from-[#0B6A8A] via-[#1a4f75] to-[#34A2A7]">
+    <div className="h-screen overflow-y-auto snap-y snap-mandatory scroll-smooth no-scrollbar bg-[#F8F8F9]">
 
-      {/* GRID BACKGROUND */}
-      <div
-        className="absolute inset-0 opacity-30 animate-gridMove pointer-events-none"
-        style={{
-          backgroundImage:
-            "linear-gradient(rgba(255,255,255,0.15) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.15) 1px, transparent 1px)",
-          backgroundSize: "60px 60px",
-        }}
+      {/* ================= HERO SECTION ================= */}
+      <section className="snap-start h-screen w-full relative flex items-center justify-center overflow-hidden bg-linear-to-br from-[#021B24] via-[#062F3E] to-[#03161e]">
+
+        <AnimatedBlobs />
+
+        {/* VIDEO BACKGROUND */}
+        <motion.video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover opacity-40"
+        >
+          <source src="/videos/video.mp4" type="video/mp4" />
+        </motion.video>
+
+        {/* DARK OVERLAY */}
+        <div className="absolute inset-0 bg-black/60" />
+
+        {/* HERO CONTENT */}
+        <div className="relative z-10 text-center px-6 max-w-5xl">
+
+          <motion.h1
+            initial={{ opacity: 0, y: 80 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
+            className="text-4xl sm:text-5xl md:text-7xl font-extrabold mb-6 tracking-tight 
+            bg-[linear-gradient(to_right,#34A2A7,#0B6A8A,#D5E2E5,#F8F8F9,#FEFEFD)]
+            bg-clip-text text-transparent"
+          >
+            Fraylon Technologies
+          </motion.h1>
+
+          <p className="text-lg sm:text-xl md:text-2xl text-white/80 leading-relaxed max-w-3xl mx-auto mb-10">
+            We design, engineer and scale digital platforms, automation systems and
+            growth engines that create measurable business impact.
+          </p>
+
+          {/* <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center">
+            <Link
+              href="/contact"
+              className="flex items-center justify-center gap-2 
+              bg-[#34A2A7] text-white 
+              px-8 py-4 text-base font-semibold 
+              hover:bg-[#0B6A8A] 
+              shadow-lg rounded-lg"
+            >
+              Start Your Project
+              <ArrowRight className="h-5 w-5" />
+            </Link>
+
+            <Link
+              href="/services"
+              className="px-8 py-4 border border-white/70 rounded-lg text-white hover:bg-white/10 transition"
+            >
+              Explore Services
+            </Link>
+          </div> */}
+        </div>
+      </section>
+
+      {/* ================= SECTION BLOCKS ================= */}
+      <SectionHeroBlock
+        subtitle="About Our Company"
+        title="Building Scalable Digital Systems"
+        desc="We design and engineer platforms, automation systems and growth solutions that deliver measurable business value."
+        image="https://images.unsplash.com/photo-1492724441997-5dc865305da7"
+        cta="Learn More"
+        link="/about/who-we-are"
+        variant="slideUp"
       />
 
-      {/* RADIAL GLOW */}
-      <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_20%_20%,rgba(52,162,167,0.25),transparent_40%),radial-gradient(circle_at_80%_70%,rgba(255,255,255,0.15),transparent_40%)]" />
+      <SectionHeroBlock
+        subtitle="Vision & Mission"
+        title="Driving Innovation Through Technology"
+        desc="We combine engineering, automation and marketing to create scalable systems for modern businesses."
+        image="https://images.unsplash.com/photo-1552664730-d307ca884978"
+        cta="Explore Vision"
+        link="/about/vision-mission"
+        align="right"
+        variant="slideLeft"
+      />
 
-      {/* HERO */}
-      <section className="text-center pt-28 pb-16 px-6 relative z-10">
-        <motion.h1
-          animate={{ y: [0, -6, 0] }}
-          transition={{ duration: 4, repeat: Infinity }}
-          className="text-5xl md:text-7xl font-extrabold"
-        >
-          
+      {/* ================= MORE STORY SECTIONS ================= */}
+      <SectionHeroBlock
+        subtitle="Innovation"
+        title="Future Ready Platforms"
+        desc="We leverage AI, cloud, and modern architectures to build next-gen digital platforms."
+        image="https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg"
+        cta="Explore Innovation"
+        link="/about/innovation"
+        variant="zoom"
+      />
 
-          <span className={headingGradient}>
-            Fraylon Technologies
-          </span>
+      <SectionHeroBlock
+        subtitle="Core Values"
+        title="Principles That Define Us"
+        desc="Integrity, collaboration, innovation and excellence guide everything we do."
+        image="https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg"
+        cta="See Values"
+        link="/about/values"
+        align="right"
+        variant="rotate"
+      />
 
-          <motion.div
-            initial={{ width: 0 }}
-            animate={{ width: "160px" }}
-            transition={{ duration: 0.6 }}
-            className="h-[3px] bg-gradient-to-r from-[#34A2A7] to-white mx-auto mt-4 rounded-full"
-          />
-        </motion.h1>
+      <SectionHeroBlock
+        subtitle="Leadership"
+        title="Driving Strategy & Innovation"
+        desc="Our leadership combines engineering excellence with business vision."
+        image="https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg"
+        cta="Meet Leadership"
+        link="/about/leadership"
+        variant="slideUp"
+      />
 
-        <p className="mt-6 max-w-2xl mx-auto text-white/80 text-lg">
-          Empowering businesses with modern digital solutions, automation, and innovation.
-        </p>
-      </section>
+      {/* ================= FINAL CTA ================= */}
+      <section className="snap-start bg-[#F8F8F9] flex items-center justify-center px-6 py-24">
 
-      {/* SECTION DIVIDER */}
-      <div className="h-[1px] w-full max-w-5xl mx-auto bg-gradient-to-r from-transparent via-white/30 to-transparent mb-16" />
+        <div className="max-w-5xl text-center bg-white shadow-xl rounded-3xl p-16">
 
-      {/* WHO WE ARE */}
-      <section className="max-w-6xl mx-auto px-6 py-16 grid md:grid-cols-2 gap-12 items-center relative z-10 backdrop-blur-[2px]">
-        <motion.div variants={fadeUp} initial="hidden" whileInView="show">
-          <h2 className={headingStyle}>
-            <span className={headingGradient}>Who We Are</span>
-            <span className="block h-[3px] w-0 bg-gradient-to-r from-[#34A2A7] to-white mt-2 transition-all duration-500 ease-in-out group-hover:w-full"></span>
+          <h2 className="text-4xl md:text-5xl font-bold text-[#021B24] mb-6">
+            Let’s Build Something Powerful Together
           </h2>
 
-          <p className="text-white/80 text-lg leading-relaxed">
-            Fraylon Technologies builds scalable web platforms, automation systems,
-            and marketing solutions to help businesses grow faster, smarter, and more efficiently.
-          </p>
-        </motion.div>
-
-        <motion.img
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6 }}
-          src="https://img.freepik.com/free-photo/businesspeople-having-good-time-meeting_1098-1786.jpg"
-          className="rounded-2xl shadow-2xl w-full h-[360px] object-cover"
-          whileHover={{ y: -8, rotate: 1 }}
-        />
-      </section>
-
-      {/* DIVIDER */}
-      <div className="h-[1px] w-full max-w-5xl mx-auto bg-gradient-to-r from-transparent via-white/30 to-transparent mb-16" />
-
-      {/* VISION & MISSION */}
-      <section className="max-w-6xl mx-auto px-6 py-16 grid md:grid-cols-2 gap-12 items-center relative z-10 backdrop-blur-[2px]">
-        <motion.img
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6 }}
-          src="https://images.stockcake.com/public/8/f/2/8f232cdb-1ba5-42aa-be75-f9fbb33c2f6c_large/corporate-team-meeting-stockcake.jpg"
-          className="rounded-2xl shadow-2xl w-full h-[360px] object-cover"
-          whileHover={{ y: -8, rotate: -1 }}
-        />
-
-        <motion.div variants={fadeUp} initial="hidden" whileInView="show">
-          <h2 className={headingStyle}>
-            <span className={headingGradient}>Vision & Mission</span>
-            <span className="block h-[3px] w-0 bg-gradient-to-r from-[#34A2A7] to-white mt-2 transition-all duration-500 ease-in-out group-hover:w-full"></span>
-          </h2>
-
-          <p className="text-white/80 text-lg mb-4">
-            Our vision is to become a global digital growth partner helping organizations scale with modern technology.
+          <p className="text-[#062F3E]/80 mb-10 max-w-2xl mx-auto">
+            We design scalable digital systems that drive growth and measurable business results.
           </p>
 
-          <p className="text-white/80 text-lg">
-            Our mission is to integrate development, marketing, and automation into powerful systems that drive measurable growth.
-          </p>
-        </motion.div>
-      </section>
+          <div className="flex flex-col sm:flex-row gap-6 justify-center">
 
-      {/* DIVIDER */}
-      <div className="h-[1px] w-full max-w-5xl mx-auto bg-gradient-to-r from-transparent via-white/30 to-transparent mb-16" />
-
-      {/* CORE VALUES */}
-      <section className="py-16 px-6 text-center relative z-10 backdrop-blur-[2px]">
-        <h2 className={`${headingStyle} mb-12`}>
-          <span className={headingGradient}>Our Core Values</span>
-          <span className="block h-[3px] w-0 bg-gradient-to-r from-[#34A2A7] to-white mt-2 transition-all duration-500 ease-in-out group-hover:w-full mx-auto"></span>
-        </h2>
-
-        <motion.div variants={containerStagger} initial="hidden" whileInView="show" className="grid grid-cols-2 md:grid-cols-5 gap-6 max-w-6xl mx-auto">
-          {values.map((val, i) => (
-            <motion.div
-              key={i}
-              variants={fadeUp}
-              whileHover={{ y: -10, scale: 1.03, rotateX: 2, rotateY: -2 }}
-              className="bg-white/10 border border-white/20 p-6 rounded-xl shadow-lg hover:shadow-[#34A2A7]/40"
+            <Link
+              href="/contact"
+              className="flex items-center justify-center gap-2 
+              bg-[#34A2A7] text-white 
+              px-8 py-4 font-semibold 
+              hover:bg-[#0B6A8A] 
+              shadow-lg rounded-lg"
             >
-              <div className="mb-3 flex justify-center">
-                <div className="p-3 rounded-full bg-white/10 shadow-inner shadow-[#34A2A7]/30">
-                  {val.icon}
-                </div>
-              </div>
-              <h3 className="font-semibold text-lg mb-1">{val.title}</h3>
-              <p className="text-white/70 text-sm">{val.desc}</p>
-            </motion.div>
-          ))}
-        </motion.div>
-      </section>
+              Start Your Project
+            </Link>
 
-      {/* DIVIDER */}
-      <div className="h-[1px] w-full max-w-5xl mx-auto bg-gradient-to-r from-transparent via-white/30 to-transparent mb-16" />
-
-      {/* LEADERSHIP */}
-      <section className="py-16 px-6 text-center relative z-10 backdrop-blur-[2px]">
-        <h2 className={headingStyle}>
-          <span className={headingGradient}>Leadership</span>
-          <span className="block h-[3px] w-0 bg-gradient-to-r from-[#34A2A7] to-white mt-2 transition-all duration-500 ease-in-out group-hover:w-full mx-auto"></span>
-        </h2>
-
-        <p className="text-white/70 max-w-xl mx-auto mb-12">
-          Our team combines innovation, strategy, and experience to drive impactful digital transformation.
-        </p>
-
-        <motion.div variants={containerStagger} initial="hidden" whileInView="show" className="grid md:grid-cols-3 gap-10 max-w-6xl mx-auto">
-          {team.map((m, i) => (
-            <motion.div
-              key={i}
-              variants={fadeUp}
-              whileHover={{ y: -10, scale: 1.05 }}
-              className="bg-white/10 border border-white/20 p-8 rounded-2xl shadow-lg hover:shadow-[#34A2A7]/40"
+            <Link
+              href="/services"
+              className="px-8 py-4 border border-[#021B24] text-[#021B24] rounded-lg hover:bg-[#021B24] hover:text-white transition"
             >
-              <div className="w-28 h-28 mx-auto mb-4 overflow-hidden rounded-full border-2 border-[#34A2A7]/60 shadow-lg shadow-[#34A2A7]/30">
-                <img src={m.img} className="w-full h-full object-cover rounded-full" />
-              </div>
-              <h3 className="text-xl font-semibold">{m.name}</h3>
-              <p className="text-[#34A2A7]">{m.role}</p>
-            </motion.div>
-          ))}
-        </motion.div>
+              Explore Services
+            </Link>
+
+          </div>
+        </div>
       </section>
 
     </div>

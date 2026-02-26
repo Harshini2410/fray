@@ -1,15 +1,29 @@
 @import "tailwindcss";
 
-@keyframes spinSlow {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+/* =====================================================
+   🔹 BASE RESET
+===================================================== */
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow-x: hidden;   /* prevent horizontal scroll */
+  overflow-y: auto;     /* allow vertical scroll */
 }
 
-.animate-spin-slow {
-  animation: spinSlow 60s linear infinite;
+/* Hide scrollbar (clean UI) */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  scrollbar-width: none;
 }
 
-/* ================= FADE IN ================= */
+/* =====================================================
+   🔹 FADE & ENTRANCE ANIMATIONS
+===================================================== */
+
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -25,7 +39,15 @@
   animation: fadeIn 1s ease-out;
 }
 
-/* ================= GRADIENT TEXT ================= */
+@keyframes fadeUp {
+  0% { opacity: 0; transform: translateY(40px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* =====================================================
+   🔹 GRADIENT TEXT ANIMATION
+===================================================== */
+
 @keyframes gradientX {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
@@ -37,23 +59,100 @@
   animation: gradientX 6s ease infinite;
 }
 
-/* ================= MESH BACKGROUND ================= */
-@keyframes meshMove {
-  0% { transform: translate(0,0); }
-  50% { transform: translate(-40px, 40px); }
-  100% { transform: translate(0,0); }
+/* Highlight words */
+.highlight {
+  background: linear-gradient(90deg, #34A2A7, #7dd3fc, #34A2A7);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  color: transparent;
+  font-weight: 600;
+  animation: gradientX 5s linear infinite;
 }
 
-.animate-mesh {
-  animation: meshMove 12s ease-in-out infinite;
+/* =====================================================
+   🔹 SHIMMER EFFECT
+===================================================== */
+
+@keyframes shimmer {
+  0% { transform: translateX(-120%); }
+  100% { transform: translateX(120%); }
 }
 
-/* ================= GRID BACKGROUND ================= */
-@keyframes gridMove {
-  0% { background-position: 0 0; }
-  100% { background-position: 80px 80px; }
+.animate-shimmer {
+  animation: shimmer 4s linear infinite;
 }
 
-.animate-gridMove {
-  animation: gridMove 10s linear infinite;
+/* =====================================================
+   🔹 VIDEO ZOOM EFFECT (optional)
+===================================================== */
+
+@keyframes slowZoom {
+  0% { transform: scale(1.05); }
+  50% { transform: scale(1.15); }
+  100% { transform: scale(1.05); }
+}
+
+/* =====================================================
+   🔹 FLOATING PARTICLES
+===================================================== */
+
+.particle {
+  position: absolute;
+  bottom: -20px;
+  width: 6px;
+  height: 6px;
+  background: rgba(52, 162, 167, 0.8);
+  border-radius: 50%;
+  filter: blur(1px);
+  animation: floatUp linear infinite;
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0px) scale(0.8);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.7;
+  }
+  50% {
+    transform: translateY(-50vh) scale(1.2);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-110vh) scale(0.6);
+    opacity: 0;
+  }
+}
+
+/* =====================================================
+   🔹 HERO HIGHLIGHT TEXT
+===================================================== */
+
+.hero-highlight {
+  background: linear-gradient(90deg, #34A2A7, #7dd3fc, #34A2A7);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  color: transparent;
+  font-weight: 700;
+  animation: gradientX 4s linear infinite, floatText 6s ease-in-out infinite;
+  text-shadow: 0 0 12px rgba(52, 162, 167, 0.5);
+}
+
+@keyframes floatText {
+  0%,100% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
+}
+
+/* =====================================================
+   🔹 TIMELINE GLOW EFFECT
+===================================================== */
+
+@keyframes pulseGlow {
+  0%,100% { box-shadow: 0 0 8px rgba(52,162,167,0.5); }
+  50% { box-shadow: 0 0 18px rgba(52,162,167,1); }
+}
+
+.timeline-active {
+  animation: pulseGlow 2s infinite ease-in-out;
 }
