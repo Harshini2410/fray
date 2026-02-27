@@ -16,7 +16,7 @@ export default function Home() {
   return (
     <>
       <Hero />
- FE-08-About-Section
+
 
       <Container>
         {/* Future homepage sections go here */}
