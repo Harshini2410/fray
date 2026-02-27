@@ -1,4 +1,4 @@
-FE-08-About-Section
+
 import Hero from "@/components/Hero";
 import Container from "@/components/ui/Container";
 
@@ -10,7 +10,7 @@ import CaseStudyHighlight from "@/components/home/CaseStudyHighlight";
 import InsightsPreview from "@/components/home/InsightsPreview";
 import LeadMagnet from "@/components/home/LeadMagnet";
 import CareersContactTeaser from "@/components/home/CareersContactTeaser";
-main
+
 
 export default function Home() {
   return (
@@ -29,7 +29,7 @@ export default function Home() {
       <InsightsPreview />
       <LeadMagnet />
       <CareersContactTeaser />
-main
+
     </>
   );
 }
