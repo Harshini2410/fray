@@ -1,12 +1,3 @@
-
-export default function ContactPage() {
-  return (
-    <div className="p-10">
-      <h1 className="text-2xl font-bold">Contact Page</h1>
-    </div>
-  );
-}
-
 import type { Metadata } from "next";
 import Container from "@/components/ui/Container";
 import ContactForm from "@/components/contact/ContactForm";
@@ -43,6 +34,7 @@ export default function ContactPage() {
             </p>
 
             <div className="space-y-6">
+              {/* Email */}
               <div className="flex items-start">
                 <div className="flex-shrink-0">
                   <svg
@@ -67,6 +59,7 @@ export default function ContactPage() {
                 </div>
               </div>
 
+              {/* Phone */}
               <div className="flex items-start">
                 <div className="flex-shrink-0">
                   <svg
@@ -89,6 +82,7 @@ export default function ContactPage() {
                 </div>
               </div>
 
+              {/* Address */}
               <div className="flex items-start">
                 <div className="flex-shrink-0">
                   <svg
@@ -113,10 +107,8 @@ export default function ContactPage() {
                 <div className="ml-4">
                   <h3 className="text-sm font-medium text-gray-900">Address</h3>
                   <p className="mt-1 text-sm text-gray-600">
-                    123 Business Street
-                    <br />
-                    Suite 100
-                    <br />
+                    123 Business Street <br />
+                    Suite 100 <br />
                     City, State 12345
                   </p>
                 </div>
@@ -136,4 +128,3 @@ export default function ContactPage() {
     </Container>
   );
 }
-
