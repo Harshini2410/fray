@@ -1,3 +1,12 @@
+FE-08-About-Section
+export default function ContactPage() {
+  return (
+    <div className="p-10">
+      <h1 className="text-2xl font-bold">Contact Page</h1>
+    </div>
+  );
+}
+
 import type { Metadata } from "next";
 import Container from "@/components/ui/Container";
 import ContactForm from "@/components/contact/ContactForm";
@@ -128,3 +137,4 @@ export default function ContactPage() {
   );
 }
 
+main
