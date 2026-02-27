@@ -1,5 +1,5 @@
 "use client";
- FE-08-About-Section
+
 import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -207,6 +207,5 @@ export default function Navbar() {
       {/* Spacer */}
       <div className="h-[88px]" />
     </>
-main
   );
 }
