@@ -1,24 +1,19 @@
-
 "use client";
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
-import VisionMission from "@/components/about/VisionMission";
-import SectionHeroBlock from "@/components/about/SectionHeroBlock";
 import AnimatedBlobs from "@/components/reusableui/animatedblobs";
-import ServiceCard from "@/components/reusableui/servicecard";
+import SectionHeroBlock from "@/components/about/SectionHeroBlock";
 
 export default function AboutPage() {
   return (
     <div className="h-screen overflow-y-auto snap-y snap-mandatory scroll-smooth no-scrollbar bg-[#F8F8F9]">
-
+      
       {/* ================= HERO SECTION ================= */}
-      <section className="snap-start h-screen w-full relative flex items-center justify-center overflow-hidden bg-linear-to-br from-[#021B24] via-[#062F3E] to-[#03161e]">
-
+      <section className="snap-start h-screen w-full relative flex items-center justify-center overflow-hidden bg-gradient-to-br from-[#021B24] via-[#062F3E] to-[#03161e]">
+        
         <AnimatedBlobs />
 
-        {/* VIDEO BACKGROUND */}
         <motion.video
           autoPlay
           muted
@@ -29,12 +24,9 @@ export default function AboutPage() {
           <source src="/videos/video.mp4" type="video/mp4" />
         </motion.video>
 
-        {/* DARK OVERLAY */}
         <div className="absolute inset-0 bg-black/60" />
 
-        {/* HERO CONTENT */}
         <div className="relative z-10 text-center px-6 max-w-5xl">
-
           <motion.h1
             initial={{ opacity: 0, y: 80 }}
             animate={{ opacity: 1, y: 0 }}
@@ -50,27 +42,6 @@ export default function AboutPage() {
             We design, engineer and scale digital platforms, automation systems and
             growth engines that create measurable business impact.
           </p>
-
-          {/* <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center">
-            <Link
-              href="/contact"
-              className="flex items-center justify-center gap-2 
-              bg-[#34A2A7] text-white 
-              px-8 py-4 text-base font-semibold 
-              hover:bg-[#0B6A8A] 
-              shadow-lg rounded-lg"
-            >
-              Start Your Project
-              <ArrowRight className="h-5 w-5" />
-            </Link>
-
-            <Link
-              href="/services"
-              className="px-8 py-4 border border-white/70 rounded-lg text-white hover:bg-white/10 transition"
-            >
-              Explore Services
-            </Link>
-          </div> */}
         </div>
       </section>
 
@@ -96,7 +67,6 @@ export default function AboutPage() {
         variant="slideLeft"
       />
 
-      {/* ================= MORE STORY SECTIONS ================= */}
       <SectionHeroBlock
         subtitle="Innovation"
         title="Future Ready Platforms"
@@ -130,9 +100,7 @@ export default function AboutPage() {
 
       {/* ================= FINAL CTA ================= */}
       <section className="snap-start bg-[#F8F8F9] flex items-center justify-center px-6 py-24">
-
         <div className="max-w-5xl text-center bg-white shadow-xl rounded-3xl p-16">
-
           <h2 className="text-4xl md:text-5xl font-bold text-[#021B24] mb-6">
             Let’s Build Something Powerful Together
           </h2>
@@ -142,7 +110,6 @@ export default function AboutPage() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
-
             <Link
               href="/contact"
               className="flex items-center justify-center gap-2 
@@ -160,27 +127,9 @@ export default function AboutPage() {
             >
               Explore Services
             </Link>
-
           </div>
         </div>
       </section>
-
     </div>
   );
 }
-
-export default function AboutPage() {
-  return (
-    <section className="flex min-h-[60vh] flex-col items-center justify-center px-6 py-16 text-center">
-      <h1 className="text-4xl font-semibold tracking-tight sm:text-5xl">
-        About <span className="text-primary">Fraylon</span>
-      </h1>
-      <p className="mt-4 max-w-2xl text-balance text-sm text-muted-foreground sm:text-base">
-        Fraylon Technologies builds modern, scalable digital experiences with a
-        focus on performance, design, and reliability. This page is a placeholder
-        and can be extended with your story, mission, and team.
-      </p>
-    </section>
-  );
-}
-
