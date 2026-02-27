@@ -1,4 +1,4 @@
- FE-08-About-Section
+
 "use client";
 
 import { motion } from "framer-motion";
@@ -184,5 +184,3 @@ export default function AboutPage() {
   );
 }
 
-
-main
