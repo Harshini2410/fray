@@ -1,3 +1,4 @@
+FE-08-About-Section
 
 "use client";
 
@@ -168,3 +169,13 @@ export default function ServicesPage() {
     </main>
   );
 }
+
+import ServicesCarousel from "@/components/services/ServicesCarousel";
+
+export default function ServicesPage() {
+  return <ServicesCarousel />;
+}
+
+
+
+ main

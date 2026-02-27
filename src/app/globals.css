@@ -1,5 +1,6 @@
 @import "tailwindcss";
 
+FE-08-About-Section
 /* =====================================================
    🔹 BASE RESET
 ===================================================== */
@@ -156,3 +157,5 @@ html, body {
 .timeline-active {
   animation: pulseGlow 2s infinite ease-in-out;
 }
+
+main
