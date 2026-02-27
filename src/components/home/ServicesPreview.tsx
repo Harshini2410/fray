@@ -19,20 +19,28 @@ const headingVariants: Variants = {
 
 const services = [
   {
-    title: "Digital strategy & advisory",
-    body: "Board-level advisory, portfolio shaping, and operating model design so digital investments connect directly to measurable outcomes.",
+    title: "Performance marketing",
+    body: "Channel strategy, creative, and experimentation designed to acquire customers profitably across paid and organic.",
   },
   {
-    title: "Experience & product design",
-    body: "Research, service design, and interaction design for complex ecosystems—web, mobile, internal tools, and everything in between.",
+    title: "Websites & product experiences",
+    body: "Conversion-first marketing sites, landing pages, and product flows that translate demand into qualified pipeline.",
   },
   {
-    title: "Platform engineering",
-    body: "Cloud-native platforms, data foundations, and integration layers engineered for security, resilience, and long-term maintainability.",
+    title: "Brand & narrative",
+    body: "Positioning, messaging, and visual language that clearly explain what you do—and why it matters—without the fluff.",
   },
   {
-    title: "Managed delivery",
-    body: "Embedded cross-functional teams with enterprise-grade governance, reporting, and risk management built in from day one.",
+    title: "Funnel optimisation",
+    body: "End-to-end journey reviews, testing plans, and instrumentation to lift conversion across each growth stage.",
+  },
+  {
+    title: "Automation systems",
+    body: "CRM, email, and workflow automations that scale handoffs, follow-ups, and nurture without adding headcount.",
+  },
+  {
+    title: "Technical strategy",
+    body: "Architecture and tooling choices that keep your stack fast, measurable, and ready for the next stage of growth.",
   },
 ];
 
@@ -64,8 +72,8 @@ export default function ServicesPreview() {
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.6, ease: [0.25, 0.8, 0.4, 1] as [number, number, number, number] }}
-          >
-            Services
+            >
+              Our core services
           </motion.p>
           <div className="overflow-hidden mt-4">
             <motion.h2
@@ -74,7 +82,7 @@ export default function ServicesPreview() {
               initial="hidden"
               animate={inView ? "visible" : "hidden"}
             >
-              One team across strategy, design, engineering, and delivery.
+              One team across strategy, marketing, product, and technology.
             </motion.h2>
           </div>
           <motion.p
@@ -82,9 +90,10 @@ export default function ServicesPreview() {
             initial={{ opacity: 0, y: 24 }}
             animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 24 }}
             transition={{ duration: 0.7, delay: 0.15, ease: [0.25, 0.8, 0.4, 1] }}
-          >
-            Fraylon works as a single accountable partner—from defining the bet
-            with your leadership through to the last mile of implementation.
+            >
+              Fraylon plugs in as a single accountable growth partner—from
+              validating the bet with founders through to the last mile of
+              execution.
           </motion.p>
         </div>
 

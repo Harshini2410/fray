@@ -157,6 +157,7 @@ export default function Hero() {
           className="relative z-10 max-w-xl md:max-w-2xl"
           style={{ opacity: textOpacity }}
         >
+          {/* Subtle brand line */}
           <motion.p
             className="text-xs font-medium uppercase tracking-[0.22em] text-sky-300/80"
             initial={{ opacity: 0, y: 20 }}
@@ -175,10 +176,10 @@ export default function Hero() {
               ],
             }}
           >
-            Enterprise digital partners
+            Fraylon Technologies
           </motion.p>
 
-          <motion.h1 className="mt-6 text-balance text-[2.4rem] font-semibold tracking-tight text-slate-200 sm:text-5xl md:text-[3.25rem] md:leading-[1.05] lg:text-[3.6rem]">
+          <motion.h1 className="mt-4 text-balance text-[2.6rem] font-semibold tracking-tight text-slate-200 sm:text-5xl md:text-[3.4rem] md:leading-[1.05] lg:text-[3.8rem]">
             <motion.span
               className="block"
               variants={lineVariants as Variants}
@@ -186,20 +187,11 @@ export default function Hero() {
               animate={inView ? "visible" : "hidden"}
               custom={1}
             >
-              Designing{" "}
+              Building{" "}
               <span className="bg-gradient-to-r from-cyan-300 via-sky-300 to-indigo-300 bg-clip-text text-transparent">
-                systems that last
-              </span>
-            </motion.span>
-
-            <motion.span
-              className="mt-1 block text-slate-300"
-              variants={lineVariants as Variants}
-              initial="hidden"
-              animate={inView ? "visible" : "hidden"}
-              custom={2}
-            >
-              for complex, global organisations.
+                scalable growth systems
+              </span>{" "}
+              for today&apos;s digital economy
             </motion.span>
           </motion.h1>
 
@@ -210,10 +202,9 @@ export default function Hero() {
             animate={inView ? "visible" : "hidden"}
             custom={3}
           >
-            Fraylon helps leadership teams architect and deliver
-            digital platforms that feel considered, governed, and
-            dependable—without losing the pace and clarity of modern
-            product organisations.
+            Strategy, technology, and execution working together to
+            help startups and growth-focused brands scale with
+            confidence—not just more campaigns or more code.
           </motion.p>
 
           <motion.div
@@ -243,9 +234,7 @@ export default function Hero() {
                 ],
               }}
             >
-              <span className="relative z-10">
-                Schedule a leadership session
-              </span>
+              <span className="relative z-10">Book a consultation</span>
               <motion.span
                 aria-hidden
                 className="absolute inset-0 rounded-full bg-gradient-to-r from-cyan-400 via-sky-300 to-indigo-300 opacity-0"
@@ -285,7 +274,7 @@ export default function Hero() {
                 ],
               }}
             >
-              <span>Download capabilities overview</span>
+              <span>Explore services</span>
               <motion.span
                 aria-hidden
                 className="absolute inset-0 rounded-full border border-slate-200/0"
@@ -302,7 +291,7 @@ export default function Hero() {
             animate={inView ? "visible" : "hidden"}
             custom={5}
           >
-            <p>Designed for regulated, multi-stakeholder environments.</p>
+            <p>Trusted by startups and growth-focused brands.</p>
             <div className="h-px w-10 bg-slate-600/60" />
             <p>Strategy · Experience · Engineering · Delivery</p>
           </motion.div>
