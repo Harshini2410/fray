@@ -1,5 +1,3 @@
-FE-08-About-Section
-
 "use client";
 
 import AnimatedBlobs from "@/components/reusableui/animatedblobs";
@@ -176,6 +174,3 @@ export default function ServicesPage() {
   return <ServicesCarousel />;
 }
 
-
-
- main
