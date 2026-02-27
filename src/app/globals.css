@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-FE-08-About-Section
+
 /* =====================================================
    🔹 BASE RESET
 ===================================================== */
@@ -158,4 +158,3 @@ html, body {
   animation: pulseGlow 2s infinite ease-in-out;
 }
 
-main
